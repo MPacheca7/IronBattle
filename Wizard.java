@@ -38,3 +38,7 @@ public class Wizard extends Character {
     //primero crear ataque fireball y staff hit y luego atque aleatorio
 
 }
+
+public static void main(String[] args) {
+
+}
