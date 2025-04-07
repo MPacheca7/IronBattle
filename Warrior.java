@@ -6,7 +6,7 @@ public class Warrior extends Character {
     private int strength;
 
     public Warrior(String name) {
-        super(name, ThreadLocalRandom.current().nextInt(50, 101));
+        super(name, ThreadLocalRandom.current().nextInt(100, 201));
         setStamina();
         setStrength();
     }
@@ -24,7 +24,7 @@ public class Warrior extends Character {
     }
 
     public void setStrength() {
-        this.strength = ThreadLocalRandom.current().nextInt(1, 10);
+        this.strength = ThreadLocalRandom.current().nextInt(1, 11);
     }
 //Method that overload attack() implemented in the Attacker interface
     public void attack( Character character) {
