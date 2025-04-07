@@ -1,10 +1,10 @@
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Wizard extends Character {
-    private int mana;//random ente 10-50
+    private int mana;//random entre 10-50
     private int intelligence; //random entre 10-50
 
-    public Wizard(String name, int hp, int mana, int intelligence) {
+    public Wizard(String name) {
         super(name, ThreadLocalRandom.current().nextInt(50, 101));//Hp wizards
         this.mana = ThreadLocalRandom.current().nextInt(10, 51);
         this.intelligence = ThreadLocalRandom.current().nextInt(10, 51);
@@ -62,7 +62,7 @@ public class Wizard extends Character {
         }
         if (rival.getHp() <= 0) {
             rival.setAlive(false);
-            System.out.println(rival.getName() + "was defeated by the wizard" + getName()"!");
+            System.out.println(rival.getName() + "was defeated by the wizard" + getName() + "!");
         }
     }
 }
