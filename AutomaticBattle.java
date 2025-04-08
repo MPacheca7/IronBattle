@@ -5,6 +5,10 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class AutomaticBattle {
+
+    public static void main(String[] args) throws IOException {
+        System.out.println("Player: " + getPlayer().getName());
+    }
     public static Character getPlayer() throws IOException {
       newRandomRivals();
 
@@ -40,8 +44,18 @@ public class AutomaticBattle {
 
     private static String randomizeName() {
         Random random = new Random();
-        String[] names= {"Elden", "Aragorn", "Thor", "Thrall", "Lunnaris", "Galadriel", "Gandalf"};
-        return names[random.nextInt(names.length)];
+        String[] titles= {"Sir", "Lady", "King", "Princess", "Big", "Evil", "Wise", " "};
+        String[] syllable1= {"Lu", "Ga", "A", "E", "Fen", "Zor", "Xer", "Vel", "Thal", "Mor", "Dra"};
+        String[] syllable2= {"a", "e", "i", "o", "u", "ar", "el", "ir", "or", "ul", "an", "en", "on", "la", "na"};
+        String[] syllable3= {"ion", "or", "ar", "ek", "os", "an", "eth", "mir", "dor", "ax", "oth", "ys", "den", "ris", "el"};
+
+        String title = titles[random.nextInt(titles.length)];
+        String first = syllable1[random.nextInt(syllable1.length)];
+        String second = syllable2[random.nextInt(syllable2.length)];
+        String third = syllable3[random.nextInt(syllable3.length)];
+        String name = title + first + second + third;
+        System.out.println(name);
+        return name;
     }
 
     private static String randomizeType() {
