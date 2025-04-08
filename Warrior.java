@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Warrior extends Character {

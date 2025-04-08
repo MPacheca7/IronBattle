@@ -1,1 +1,21 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Maven
+target/
+out/
+
+# IntelliJ
 .idea
+.idea/
+*.iml
+ Character.iml
+ IronBattle.iml
+
+
+# macOS
+.DS_Store
