@@ -44,12 +44,12 @@ public class Battle  {
             player1.attack(player2); //Ataca Warrior
             System.out.println("Wizard has: " + player2.getHp() + " health left\n"); //Imprime la vida de Wizard
 
-            int deep1 = player1.getHp();
-            int deep2 = player2.getHp();
+            int winner1 = player1.getHp();
+            int winner2 = player2.getHp();
 
-            if ((deep1 > deep2)) {
+            if ((winner1 > winner2)) {
                 System.out.println("\n🏆 ¡Ganador: " + player1.getName() + "!");
-            } else if ((deep1 < deep2) ) {
+            } else if ((winner2 < winner2) ) {
                 System.out.println("\n🏆 ¡Ganador: " + player2.getName() + "!");
             } else {
                 System.out.println("Draw!");
