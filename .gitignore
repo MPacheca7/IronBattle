@@ -7,11 +7,15 @@
 
 # Maven
 target/
+out/
 
 # IntelliJ
 .idea
 .idea/
 *.iml
+ Character.iml
+ IronBattle.iml
+
 
 # macOS
 .DS_Store
