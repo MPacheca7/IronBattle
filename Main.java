@@ -1,9 +1,14 @@
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
         // Players
-        Warrior player1 = new Warrior("Aragorn");
+        /*Warrior player1 = new Warrior("Aragorn");
         Wizard player2 = new Wizard("Gandalf");
 
         System.out.println(player1.getName() + " vs " + player2.getName());
@@ -13,6 +18,8 @@ public class Main {
         Battle battle = new Battle(player1, player2);
 
         //battle.StartingBattle(); // Llama a la ronda 1
+        */
+
 
         //con scanner
         var myScanner = new Scanner(System.in);
@@ -27,7 +34,7 @@ public class Main {
             chosenType = "Warrior";
         } else {
             chosenType = "Wizard";
-            System.out.println("We chosed Wizard for you");//refactorizar a dowhile para volver a la pregunta
+            System.out.println("You choosed wrong, so you were asigned a wizard character randomly");//refactorizar a dowhile para volver a la pregunta
         }
         myScanner.nextLine();//para volver a introducir
         //para el nombre
@@ -38,9 +45,64 @@ public class Main {
         Character player3;
         if (chosenType.equals("Wizard")) {
             player3 = new Wizard(chosenName);
+            Wizard wizardPlayer = (Wizard) player3; //casting a esta clase
+            System.out.println("You have " + wizardPlayer.getHp() + "HP, " + wizardPlayer.getMana() + " of Mana, and " + wizardPlayer.getIntelligence() + " Intelligence");
         } else {
             player3 = new Warrior(chosenName);
+            Warrior warriorPlayer = (Warrior) player3;
+            System.out.println("You have " + warriorPlayer.getHp() + "HP, " + warriorPlayer.getStamina() + " of Stamina, and " + warriorPlayer.getStrength() + " Strength");
         }
-        System.out.println(player3.getHp());
+        System.out.println("To find a rival for the battle, please write any text in the console");
+        myScanner.nextLine();
+
+        //aquí importamos aleatoriamente un personaje del archivo csv
+        try (BufferedReader br = new BufferedReader(new FileReader("rivals.csv"))) {//actualizar, tener en cuenta que cada elemento tendrá que seguir un orden para el array, como Nombre, Tipo
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 2) {
+                    rivalsList.add(parts);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading CSV: " + e.getMessage());
+            return;
+        }
+
+        if (rivalsList.isEmpty()) {
+            System.out.println("No rivals found in CSV.");
+            return;
+        }
+
+        // Elegir rival aleatorio
+        Random random = new Random();
+        int index = random.nextInt(rivalsList.size());
+        String[] rivalData = rivalsList.get(index);
+
+        String rivalType = rivalData[0].trim();
+        String rivalName = rivalData[1].trim();
+
+        // Crear el rival según el tipo
+        Character rival;
+        if (rivalType.equalsIgnoreCase("Wizard")) {
+            rival = new Wizard(rivalName);
+            Wizard wiz = (Wizard) rival;
+            System.out.println("Your rival is the Wizard " + wiz.getName() +
+                    " with " + wiz.getHp() + "HP, " + wiz.getMana() + " Mana, " + wiz.getIntelligence() + " Intelligence.");
+        } else if (rivalType.equalsIgnoreCase("Warrior")) {
+            rival = new Warrior(rivalName);
+            Warrior war = (Warrior) rival;
+            System.out.println("Your rival is the Warrior " + war.getName() +
+                    " with " + war.getHp() + "HP, " + war.getStamina() + " Stamina, " + war.getStrength() + " Strength.");
+        } else {
+            System.out.println("Unknown rival type: " + rivalType);
+        }
+        System.out.println("The battle is about to begin. Please, press any key and press enter");
+        myScanner.nextLine();
+        //Battle
+        Battle battle = new Battle(player3, rival);
+
+        //battle.StartingBattle(); // Llama a la ronda 1
+
     }
 }
