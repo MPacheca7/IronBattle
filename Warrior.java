@@ -5,8 +5,8 @@ public class Warrior extends Character {
     private int stamina;
     private int strength;
 
-    public Warrior(String name, int hp, int strength, int stamina) {
-        super(name, hp);
+    public Warrior(String name) {
+        super(name, ThreadLocalRandom.current().nextInt(100, 201));
         setStamina();
         setStrength();
     }
@@ -24,11 +24,11 @@ public class Warrior extends Character {
     }
 
     public void setStrength() {
-        this.strength = ThreadLocalRandom.current().nextInt(1, 10);
+        this.strength = ThreadLocalRandom.current().nextInt(1, 11);
     }
 //Method that overload attack() implemented in the Attacker interface
     public void attack( Character character) {
-        int rivalHealth = character.hp; //hay que revisar que esta vida se reste a la vida del personaje en la variable original ¿static?
+        int rivalHealth = character.getHp(); //hay que revisar que esta vida se reste a la vida del personaje en la variable original ¿static?
         String chosenAttack = randomAttack();
         if (chosenAttack.equals("heavy attack") && stamina >= 5) {
             //HEAVY ATTACK

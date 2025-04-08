@@ -3,7 +3,7 @@ import java.util.UUID;
 public abstract class Character implements IAttacker {
     private String id;
     private String name;
-    private int hp;
+    public int hp;
     private boolean isAlive;
 
     // Constructor
@@ -37,7 +37,6 @@ public abstract class Character implements IAttacker {
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
         this.hp = hp;
         if (this.hp <= 0) {
             this.hp = 0;

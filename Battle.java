@@ -10,6 +10,9 @@ public class Battle {
     public void StartingBattle() {
         int round = 1;
 
-        // ---------
+        while(true){
+            System.out.println("Round: " + round);
+        }
+
     }
 }

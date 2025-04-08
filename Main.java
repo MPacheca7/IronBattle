@@ -32,5 +32,6 @@ public class Main {
         System.out.println("Choose a name for your new " + chosenType + ": ");
         String chosenName = myScanner.nextLine();
         System.out.println("Hi " + chosenName + ", welcome");
+
     }
 }
