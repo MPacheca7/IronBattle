@@ -62,7 +62,7 @@ public class Wizard extends Character {
         }
         if (rival.getHp() <= 0) {
             rival.setAlive(false);
-            System.out.println(rival.getName() + "was defeated by the wizard" + getName()"!");
+            System.out.println(rival.getName() + "was defeated by the wizard" + getName() + "!");
         }
     }
 }
