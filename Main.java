@@ -56,6 +56,8 @@ public class Main {
         myScanner.nextLine();
 
         //aquí importamos aleatoriamente un personaje del archivo csv
+        ArrayList<String[]> rivalsList = new ArrayList<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader("rivals.csv"))) {//actualizar, tener en cuenta que cada elemento tendrá que seguir un orden para el array, como Nombre, Tipo
             String line;
             while ((line = br.readLine()) != null) {
@@ -83,7 +85,7 @@ public class Main {
         String rivalName = rivalData[1].trim();
 
         // Crear el rival según el tipo
-        Character rival;
+        Character rival = null;
         if (rivalType.equalsIgnoreCase("Wizard")) {
             rival = new Wizard(rivalName);
             Wizard wiz = (Wizard) rival;
