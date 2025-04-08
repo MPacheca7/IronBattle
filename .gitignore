@@ -1,1 +1,17 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Maven
+target/
+
+# IntelliJ
 .idea
+.idea/
+*.iml
+
+# macOS
+.DS_Store
