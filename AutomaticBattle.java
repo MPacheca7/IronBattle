@@ -6,10 +6,7 @@ import java.util.Random;
 
 public class AutomaticBattle {
 
-    public static void main(String[] args) throws IOException {
-        System.out.println("Player: " + getRival().getName());
-    }
-    public static Character getRival() throws IOException {
+     public static Character getRival() throws IOException {
       newRandomRivals();
 
       Character randomPlayer = null;
@@ -21,9 +18,8 @@ public class AutomaticBattle {
           String[] fields = randomLine.split(", ");
           String type = fields[0];
           String name = fields[1];
-          System.out.println(type);
-          System.out.println(name);
           randomPlayer = CharacterFactory.createPlayer2(type, name);
+          return randomPlayer;
       }
       scanner.close();
       return randomPlayer;
@@ -44,7 +40,7 @@ public class AutomaticBattle {
 
     private static String randomizeName() {
         Random random = new Random();
-        String[] titles= {"Sir", "Lady", "King", "Princess", "Big", "Evil", "Wise", " "};
+        String[] titles= {"Sir", "Lady", "King", "Princess", "Big", "Evil", "Wise"};
         String[] syllable1= {"Lu", "Ga", "A", "E", "Fen", "Zor", "Xer", "Vel", "Thal", "Mor", "Dra"};
         String[] syllable2= {"a", "e", "i", "o", "u", "ar", "el", "ir", "or", "ul", "an", "en", "on", "la", "na"};
         String[] syllable3= {"ion", "or", "ar", "ek", "os", "an", "eth", "mir", "dor", "ax", "oth", "ys", "den", "ris", "el"};
@@ -54,7 +50,6 @@ public class AutomaticBattle {
         String second = syllable2[random.nextInt(syllable2.length)];
         String third = syllable3[random.nextInt(syllable3.length)];
         String name = title + first + second + third;
-        System.out.println(name);
         return name;
     }
 

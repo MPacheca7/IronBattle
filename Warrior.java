@@ -27,18 +27,20 @@ public class Warrior extends Character {
     }
 //Method that overload attack() implemented in the Attacker interface
     public void attack( Character character) {
-        int rivalHealth = character.getHp(); //hay que revisar que esta vida se reste a la vida del personaje en la variable original ¿static?
+
         String chosenAttack = randomAttack();
         if (chosenAttack.equals("heavy attack") && stamina >= 5) {
             //HEAVY ATTACK
-            rivalHealth -= strength;
+            int damage = strength;
+            character.setHp(character.getHp() - damage);
             stamina -=5;
-            System.out.println("Warrior attack his opponent and reduce his health in "+ strength + "points. HEAVY ATTACK. ");
+            System.out.println("Warrior attack his opponent and reduce his health in "+ strength + " points. HEAVY ATTACK. ");
         } else if (chosenAttack.equals("weak attack") && stamina > 0) {
             //WEAK ATTACK
-            rivalHealth -= strength/2;
+            int damage = strength/2;
+            character.setHp(character.getHp() - damage);
             stamina +=1;
-            System.out.println("Warrior attack his opponent and reduce his health in "+ strength/2 + "points. WEAK ATTACK. ");
+            System.out.println("Warrior attack his opponent and reduce his health in "+ strength/2 + " points. WEAK ATTACK. ");
         } else {
             //NO ATTACK
             stamina += 2;
