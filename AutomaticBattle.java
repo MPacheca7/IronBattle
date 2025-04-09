@@ -7,9 +7,9 @@ import java.util.Random;
 public class AutomaticBattle {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Player: " + getPlayer().getName());
+        System.out.println("Player: " + getRival().getName());
     }
-    public static Character getPlayer() throws IOException {
+    public static Character getRival() throws IOException {
       newRandomRivals();
 
       Character randomPlayer = null;
@@ -23,7 +23,7 @@ public class AutomaticBattle {
           String name = fields[1];
           System.out.println(type);
           System.out.println(name);
-          randomPlayer = CharacterFactory.createCharacter(type, name);
+          randomPlayer = CharacterFactory.createPlayer2(type, name);
       }
       scanner.close();
       return randomPlayer;
