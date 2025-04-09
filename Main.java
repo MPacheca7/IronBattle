@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.io.IOException;
 
 public class Main {
-
     static Scanner myScanner = new Scanner(System.in);
 
     public static void startGame() throws IOException {
